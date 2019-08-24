@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Infinite Scroll</title>
+    <style>
+      img {
+       display:block;
+      }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <img src='http://api.adorable.io/avatars/32131231' />
+    <img src='http://api.adorable.io/avatars/32131232' />
+    <img src='http://api.adorable.io/avatars/32131233' />
+  </div>
+<script>
+   
+  window.addEventListener('load',function(){
+    
+    let ptA = 'http://api.adorable.io/avatars/'
+    
+    window.addEventListener('scroll', function(){
+      
+     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        let newImage = Math.ceil( 99999999 * Math.random())
+        let newSrc = ptA + newImage
+        let image = document.createElement('img')
+        image.setAttribute('src', newSrc)
+        document.getElementsByClassName('container')[0].appendChild(image)
+     }
+
+    })
+  
+  })
+</script>
+</body>
+</html>
